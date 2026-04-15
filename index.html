@@ -602,6 +602,19 @@ tbody td:last-child { border-right: none; }
 </style>
 </head>
 <body>
+<script>
+  (function() {
+    const correct = "juz40-2026";
+    const input = prompt("🔒 Құпия сөзді енгізіңіз:");
+    if (input !== correct) {
+      document.documentElement.innerHTML =
+        "<div style=\"font-family:sans-serif;text-align:center;padding:80px;\">" +
+        "<h2>🔒 Қолжетімділік жабық</h2>" +
+        "<p style=\"color:#888\">Дұрыс құпия сөз енгізілмеді</p>" +
+        "</div>";
+    }
+  })();
+</script>
 
 <!-- ══ HERO ══ -->
 <header class="hero">
