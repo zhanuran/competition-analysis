@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ҰБТ Курстарын Талдау — 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F7FA;
+  --white: #FFFFFF;
+  --ink: #16162A;
+  --ink2: #3B3B5C;
+  --muted: #8888AA;
+  --border: #E2E2EE;
+  --border2: #CACADE;
+  --accent: #2D2DFF;
+  --accent-light: #EEEEFF;
+  --green: #12A05C;
+  --green-light: #E6F7EF;
+  --yellow: #E8A000;
+  --yellow-light: #FFF8E6;
+  --red: #D92B3A;
+  --red-light: #FFECEE;
+  --orange: #E06020;
+  --orange-light: #FFF0E6;
+
+  --c-probio: #5B4FE8;
+  --c-focus: #12A05C;
+  --c-glucose: #C08B00;
+  --c-edukey: #0090C8;
+  --c-eduser: #C0306A;
+  --c-geo: #C05800;
+  --c-tarih: #C02030;
+  --c-arystan: #B06820;
+  --c-ilim: #20907A;
+  --c-fm: #C02030;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Mulish', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: var(--white);
+  padding: 56px 48px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'ҰБТ';
+  position: absolute;
+  right: -20px; top: -30px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 220px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 24px;
+}
+.hero-eyebrow span { color: #8080FF; }
+.hero h1 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+.hero h1 em { color: #7878FF; font-style: normal; }
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.hero-stats {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.stat-item {
+  padding: 20px 28px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  min-width: 130px;
+}
+.stat-item:first-child { padding-left: 0; }
+.stat-item:last-child { border-right: none; }
+.stat-val {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-val.accent { color: #8080FF; }
+.stat-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.5px;
+}
+
+/* ── NAV ── */
+.nav-outer {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(247,247,250,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none;
+  border: 1.5px solid transparent;
+  color: var(--muted);
+  font-family: 'Mulish', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s;
+  letter-spacing: 0.2px;
+}
+.nav-btn:hover { background: var(--white); color: var(--ink); border-color: var(--border); }
+.nav-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* ── MAIN ── */
+.main {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ── SECTION HEADER ── */
+.sec-head {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.sec-head-left { display: flex; align-items: baseline; gap: 14px; }
+.sec-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+.sec-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+}
+.sec-sub { font-size: 13px; color: var(--muted); }
+
+/* ── NOTE BOX ── */
+.note {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.note strong { color: var(--ink); }
+
+/* ── OVERVIEW CARDS ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--c);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+}
+.card-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--c);
+  border-radius: 16px 16px 0 0;
+}
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 10%, white);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+.card-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.card-desc {
+  font-size: 12.5px;
+  color: var(--ink2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  color: var(--ink2);
+  background: var(--bg);
+}
+.tag.g { border-color: #B8E8D0; color: var(--green); background: var(--green-light); }
+.tag.y { border-color: #F5D87A; color: var(--yellow); background: var(--yellow-light); }
+.tag.r { border-color: #F5AAAA; color: var(--red); background: var(--red-light); }
+.tag.b { border-color: #AAAAFF; color: var(--accent); background: var(--accent-light); }
+
+/* ── TABLE ── */
+.tbl-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  margin-bottom: 32px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead tr {
+  background: var(--ink);
+}
+thead th {
+  padding: 13px 16px;
+  text-align: left;
+  font-family: 'Mulish', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+thead th:last-child { border-right: none; }
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #F2F2FA; }
+tbody tr.alt { background: #FAFAFA; }
+tbody tr.alt:hover { background: #F2F2FA; }
+tbody td {
+  padding: 13px 16px;
+  vertical-align: middle;
+  line-height: 1.5;
+  border-right: 1px solid var(--border);
+}
+tbody td:last-child { border-right: none; }
+.td-course {
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 13px;
+}
+.td-price {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--green);
+  white-space: nowrap;
+}
+.td-old {
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: line-through;
+  display: block;
+}
+.td-mut { color: var(--muted); font-size: 12px; }
+.td-center { text-align: center; }
+
+/* chips */
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+.chip-g { background: var(--green-light); color: var(--green); }
+.chip-r { background: var(--red-light); color: var(--red); }
+.chip-y { background: var(--yellow-light); color: var(--yellow); }
+.chip-b { background: var(--accent-light); color: var(--accent); }
+.chip-n { background: #F0F0F0; color: var(--muted); }
+
+/* threat chips */
+.threat-h { background: var(--red-light); color: var(--red); font-weight:700; padding:4px 10px; border-radius:8px; font-size:12px; }
+.threat-m { background: var(--orange-light); color: var(--orange); font-weight:700; padding:4px 10px; border-radius:8px; font-size:12px; }
+.threat-l { background: var(--yellow-light); color: var(--yellow); font-weight:700; padding:4px 10px; border-radius:8px; font-size:12px; }
+.threat-n { background: var(--green-light); color: var(--green); font-weight:700; padding:4px 10px; border-radius:8px; font-size:12px; }
+
+/* ── FEATURES GRID ── */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.feat-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+.feat-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.feat-dot {
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  background: var(--c);
+  flex-shrink: 0;
+}
+.feat-card-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.feat-list { list-style: none; }
+.feat-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--ink2);
+  line-height: 1.45;
+}
+.feat-list li:last-child { border-bottom: none; }
+.ico { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+/* ── SUBJECT COVERAGE ── */
+.subj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.subj-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+.subj-course { font-weight: 700; font-size: 13px; color: var(--c); margin-bottom: 12px; }
+.subj-pans { display: flex; flex-wrap: wrap; gap: 6px; }
+.subj-pan {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 7px;
+}
+.subj-yes { background: var(--green-light); color: var(--green); }
+.subj-no  { background: #F0F0F0; color: var(--muted); text-decoration: line-through; }
+.subj-part{ background: var(--yellow-light); color: var(--yellow); }
+
+/* ── RESULTS ── */
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.res-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  border-top: 4px solid var(--c);
+}
+.res-course { font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.res-big {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--c);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.res-desc { font-size: 12px; color: var(--ink2); line-height: 1.5; margin-bottom: 14px; }
+.res-items { list-style: none; }
+.res-items li {
+  font-size: 12px;
+  color: var(--ink2);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+.res-items li:last-child { border-bottom: none; }
+.res-items li::before { content: '→'; color: var(--c); font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+.trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 7px;
+  margin-top: 12px;
+}
+.trust-h { background: var(--green-light); color: var(--green); }
+.trust-m { background: var(--yellow-light); color: var(--yellow); }
+.trust-l { background: var(--orange-light); color: var(--orange); }
+.trust-n { background: #F0F0F0; color: var(--muted); }
+
+/* ── MATRIX ── */
+.matrix-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  margin-bottom: 32px;
+}
+.matrix-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.score-5 { background: #0E7A48; color: #fff; }
+.score-4 { background: #35A86C; color: #fff; }
+.score-3 { background: #F5C842; color: #1A1A00; }
+.score-2 { background: #E87830; color: #fff; }
+.score-1 { background: #D92B3A; color: #fff; }
+.score-cell {
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  width: 42px;
+  padding: 12px 8px !important;
+  border-radius: 0;
+}
+.total-cell {
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px 16px !important;
+}
+
+/* ── VERDICT ── */
+.verdict-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.verdict-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+}
+.verdict-card.highlight {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--white), var(--accent-light));
+}
+.v-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.v-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.v-body { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+.v-pros, .v-cons { list-style: none; margin-top: 12px; }
+.v-pros li { font-size: 12px; color: var(--green); padding: 3px 0; display:flex; gap:8px; }
+.v-pros li::before { content:'+'; font-weight:800; }
+.v-cons li { font-size: 12px; color: var(--red); padding: 3px 0; display:flex; gap:8px; }
+.v-cons li::before { content:'−'; font-weight:800; }
+
+/* ── INSIGHTS ── */
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.insight-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+.insight-icon { font-size: 28px; margin-bottom: 10px; }
+.insight-title { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 8px; }
+.insight-body { font-size: 12.5px; color: var(--ink2); line-height: 1.65; }
+
+/* ── DIVIDER ── */
+.div { height: 1px; background: var(--border); margin: 40px 0; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up { animation: fadeUp 0.45s ease both; }
+.tab-pane.active > * { animation: fadeUp 0.4s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { padding: 36px 20px 32px; }
+  .main { padding: 24px 20px 60px; }
+  .nav-inner { padding: 10px 20px; }
+  .stat-item { padding: 14px 18px; min-width: 100px; }
+  .stat-val { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-eyebrow">Ішкі талдау · <span>Сәуір 2026</span></div>
+  <h1>ҰБТ Курстарын<br><em>Талдау</em></h1>
+  <p class="hero-sub">10 бәсекелес курстың бағасы, құрылымы, пәндері, оқушы нәтижелері және бөліп төлеу шарттары бойынша толық салыстырмалы талдау.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-val accent">10</div><div class="stat-lbl">курс зерттелді</div></div>
+    <div class="stat-item"><div class="stat-val">6</div><div class="stat-lbl">салыстыру бөлімі</div></div>
+    <div class="stat-item"><div class="stat-val">20K–630K</div><div class="stat-lbl">баға диапазоны (₸)</div></div>
+    <div class="stat-item"><div class="stat-val accent">10+11</div><div class="stat-lbl">сынып қамтуы</div></div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav class="nav-outer">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showTab('sholu')">📋 Жалпы шолу</button>
+    <button class="nav-btn" onclick="showTab('baga')">💰 Бағалар</button>
+    <button class="nav-btn" onclick="showTab('pandar')">📚 Пәндер қамту</button>
+    <button class="nav-btn" onclick="showTab('mazmuny')">🎯 Курс мазмұны</button>
+    <button class="nav-btn" onclick="showTab('natije')">🏆 Нәтижелер</button>
+    <button class="nav-btn" onclick="showTab('qorytyndy')">💡 Қорытынды</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════════════════
+     TAB 1 — ЖАЛПЫ ШОЛУ
+══════════════════════════════════════ -->
+<section class="tab-pane active" id="tab-sholu">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Жалпы шолу</h2>
+    </div>
+    <span class="sec-sub">10 бәсекелес курс</span>
+  </div>
+
+  <div class="note">
+    <strong>Салыстыру негізі:</strong> барлық деректер курстардың ресми маркетингтік материалдарынан алынған (КП, презентациялар, Telegram хабарламалары). Бағалар сәуір 2026 жағдайы бойынша.
+  </div>
+
+  <div class="cards-grid">
+
+    <div class="card" style="--c: var(--c-probio)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Био · Хим · 10-сынып</div>
+      <div class="card-name">proBIO</div>
+      <div class="card-desc">Биология + химия бойынша 2 жылдық ҰБТ дайындық жүйесі. Медицина бағытындағы бәсекелестердің ең күштісі. 3 жылда 4 200+ түлек, 451 медицина гранты.</div>
+      <div class="card-tags">
+        <span class="tag g">17 ай</span><span class="tag g">5 кезең</span>
+        <span class="tag">от 20 825 ₸/ай</span><span class="tag g">0-0-12 ✓</span>
+        <span class="tag r">Тек 10-сынып</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-focus)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Барлық пән · 11-сынып</div>
+      <div class="card-name">FOCUS Online</div>
+      <div class="card-desc">11-сыныптарға арналған интенсив. Сәуір ағымы: 15.04–31.05.2026. 4 пән, 8 тікелей эфир/апта. Жылдам дайындық.</div>
+      <div class="card-tags">
+        <span class="tag g">85 000 ₸ (4 пән)</span><span class="tag">~6 апта</span>
+        <span class="tag g">Профориентолог ✓</span><span class="tag r">Тек 11-сынып</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-glucose)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Био · Хим · Тарих</div>
+      <div class="card-name">Glucose Online</div>
+      <div class="card-desc">Биология + химия комбо-курсы. Өз платформасы, апталық жоспар, тікелей эфирлер, профориентация. 1.07.2027-ге дейін.</div>
+      <div class="card-tags">
+        <span class="tag">260 000 ₸</span><span class="tag">~13 ай</span>
+        <span class="tag g">Бөліп төлеу ✓</span><span class="tag g">Профориент ✓</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-edukey)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Барлық пән · 10–11</div>
+      <div class="card-name">EduKey</div>
+      <div class="card-desc">10 ай: 7 ай теория + 3 ай тест-интенсив. Google Meet арқылы LIVE сабақтар, прокторинг, үздік оқушыларға стипендия 10 000 ₸/ай.</div>
+      <div class="card-tags">
+        <span class="tag">29 500 ₸/ай (5 пән)</span><span class="tag">10 ай</span>
+        <span class="tag g">Стипендия ✓</span><span class="tag b">Прокторинг ✓</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-eduser)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">5 пән · 16 ай</div>
+      <div class="card-name">EduSer</div>
+      <div class="card-desc">Prime (2 пән, 279K₸) және Elite (5 пән, 389K₸) — екі пакет. Видео, тесттер, куратор, рейтинг жүйесі.</div>
+      <div class="card-tags">
+        <span class="tag">16 ай</span><span class="tag">279K–389K ₸</span>
+        <span class="tag g">0-0-12 ✓</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-geo)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Гео · Тарих · Мультипән</div>
+      <div class="card-name">GeoOnline</div>
+      <div class="card-desc">Мамандану: география + Қазақстан тарихы. 3 пакет: Light, Grant, Record. GEOBOX — физикалық материалдар. Старт 17 қаңтар.</div>
+      <div class="card-tags">
+        <span class="tag">329K–479K ₸</span><span class="tag g">0-0-24 ✓</span>
+        <span class="tag b">GEOBOX</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-tarih)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Тарих · Мат.сауат</div>
+      <div class="card-name">Тарих мектебі</div>
+      <div class="card-desc">Қазақстан тарихына мамандану. Оразбек ағай (11 жыл тәжірибе, ҰТО серіктесі, тест құрастырушы). 10-сынып = 2 жыл тегін.</div>
+      <div class="card-tags">
+        <span class="tag g">90K–120K ₸</span><span class="tag g">10-сынып 2 жыл тегін!</span>
+        <span class="tag g">0-0-24 ✓</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-arystan)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">5 пән · 16 ай</div>
+      <div class="card-name">Арыстан</div>
+      <div class="card-desc">3 пакет: Стандарт (300K), VIP (540K), Армия-VIP (637K). Армия-VIP — грантқа ресми кепілдік (кепілдік шарт).</div>
+      <div class="card-tags">
+        <span class="tag">300K–637K ₸</span><span class="tag g">Грант кепілдігі ✓</span>
+        <span class="tag g">0-0-12 ✓</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-ilim)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Барлық пән · Икемді</div>
+      <div class="card-name">IlimQaz</div>
+      <div class="card-desc">Сәуір 2026 акциясы. Бекітілген баға (ай сайын өзгермейді). 2025: 99% оқушы 110+ балл. 140 балл → 5 000 000 ₸ сыйақы!</div>
+      <div class="card-tags">
+        <span class="tag g">от 20 000 ₸/ай</span><span class="tag g">Тіркелген баға ✓</span>
+        <span class="tag y">5 млн сыйақы</span>
+      </div>
+    </div>
+
+    <div class="card" style="--c: var(--c-fm)">
+      <div class="card-stripe"></div>
+      <div class="card-badge">Физ · Мат · Инфо</div>
+      <div class="card-name">FM Online</div>
+      <div class="card-desc">Физика + Математика + Информатика. 2022 жылдан, 10 200+ оқушы. Қаңтар ҰБТ 2026 нәтижелері: 125–136 балл (нақты куәліктер).</div>
+      <div class="card-tags">
+        <span class="tag">239K–629K ₸</span><span class="tag g">0-0-24 ✓</span>
+        <span class="tag g">Нақты куәліктер ✓</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TAB 2 — БАҒАЛАР
+══════════════════════════════════════ -->
+<section class="tab-pane" id="tab-baga">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Бағалар мен тарифтер</h2>
+    </div>
+    <span class="sec-sub">Бөліп төлеу шарттарымен</span>
+  </div>
+
+  <div class="note">
+    <strong>Ескерту:</strong> «0-0-12» — бастапқы жарнасыз, пайызсыз, 12 айға Kaspi арқылы бөліп төлеу. «0-0-24» — 24 айға. Бағалар сәуір 2026 жағдайы бойынша.
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Тариф / Пакет</th>
+          <th>Толық баға (₸)</th>
+          <th>Жеңілдікпен (₸)</th>
+          <th>Ұзақтық</th>
+          <th>Айына 0-0-12</th>
+          <th>Айына 0-0-24</th>
+          <th>Бөліп төлеу</th>
+          <th>Kaspi Red</th>
+          <th>Ерекше шарт</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-course" style="color:var(--c-probio)">proBIO</td><td>START (Биология)</td><td class="td-mut">249 900</td><td class="td-price">249 900</td><td class="td-mut">17 ай</td><td class="td-price">20 825 ₸</td><td class="td-mut">10 413 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">4 тариф бар</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-probio)">proBIO</td><td>КОМБО (Био+Хим)</td><td class="td-mut">369 900</td><td class="td-price">369 900</td><td class="td-mut">17 ай</td><td class="td-price">30 825 ₸</td><td class="td-mut">15 413 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr><td class="td-course" style="color:var(--c-probio)">proBIO</td><td>VIP КОМБО (Био+Хим+Тарих)</td><td class="td-mut">439 900</td><td class="td-price">439 900</td><td class="td-mut">17 ай</td><td class="td-price">36 658 ₸</td><td class="td-mut">18 329 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-focus)">FOCUS Online</td><td>2 пән</td><td class="td-mut td-old">99 000</td><td class="td-price">65 000</td><td class="td-mut">~6 апта</td><td class="td-mut">—</td><td class="td-mut">—</td><td><span class="chip chip-n">Деректер жоқ</span></td><td><span class="chip chip-n">—</span></td><td class="td-mut">Тек сәуір-мамыр 2026</td></tr>
+        <tr><td class="td-course" style="color:var(--c-focus)">FOCUS Online</td><td>4 пән</td><td class="td-mut td-old">120 000</td><td class="td-price">85 000</td><td class="td-mut">~6 апта</td><td class="td-mut">—</td><td class="td-mut">—</td><td><span class="chip chip-n">Деректер жоқ</span></td><td><span class="chip chip-n">—</span></td><td class="td-mut">Тек 11-сынып</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-glucose)">Glucose Online</td><td>Комбо (Био+Хим)</td><td class="td-mut">260 000</td><td class="td-price">260 000</td><td class="td-mut">~13 ай</td><td class="td-price">21 667 ₸</td><td class="td-mut">10 833 ₸</td><td><span class="chip chip-g">Бар ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">Профориент. қосылған</td></tr>
+        <tr><td class="td-course" style="color:var(--c-edukey)">EduKey</td><td>5 пән (айына)</td><td class="td-mut">295 000</td><td class="td-price">295 000</td><td class="td-mut">10 ай</td><td class="td-price">29 500 ₸</td><td class="td-mut">—</td><td><span class="chip chip-n">Деректер жоқ</span></td><td><span class="chip chip-n">—</span></td><td class="td-mut">Стипендия 10K₸/ай үздіктерге</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-eduser)">EduSer</td><td>Prime (2 пән)</td><td class="td-mut td-old">385 000</td><td class="td-price">279 000</td><td class="td-mut">16 ай</td><td class="td-price">23 250 ₸</td><td class="td-mut">11 625 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr><td class="td-course" style="color:var(--c-eduser)">EduSer</td><td>Elite (5 пән)</td><td class="td-mut td-old">515 000</td><td class="td-price">389 000</td><td class="td-mut">16 ай</td><td class="td-price">32 417 ₸</td><td class="td-mut">16 208 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-geo)">GeoOnline</td><td>Light (Гео+Тарих)</td><td class="td-mut td-old">359 000</td><td class="td-price">329 000</td><td class="td-mut">~24 ай</td><td class="td-price">27 417 ₸</td><td class="td-price">13 708 ₸</td><td><span class="chip chip-g">0-0-24 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">GEOBOX физ. материалдар</td></tr>
+        <tr><td class="td-course" style="color:var(--c-geo)">GeoOnline</td><td>Record</td><td class="td-mut td-old">529 000</td><td class="td-price">479 000</td><td class="td-mut">~24 ай</td><td class="td-price">39 917 ₸</td><td class="td-price">19 958 ₸</td><td><span class="chip chip-g">0-0-24 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-tarih)">Тарих мектебі</td><td>Тарих (4 ай)</td><td class="td-mut">90 000</td><td class="td-price">90 000</td><td class="td-mut">ҰБТ-ға дейін</td><td class="td-price">7 500 ₸</td><td class="td-price">3 750 ₸</td><td><span class="chip chip-g">0-0-24 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">10-сынып → 2 жыл тегін!</td></tr>
+        <tr><td class="td-course" style="color:var(--c-tarih)">Тарих мектебі</td><td>Комбо №1 (Тарих+Матсауат)</td><td class="td-mut">120 000</td><td class="td-price">120 000</td><td class="td-mut">ҰБТ-ға дейін</td><td class="td-price">10 000 ₸</td><td class="td-price">5 000 ₸</td><td><span class="chip chip-g">0-0-24 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">10-сынып → 2 жыл тегін!</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-arystan)">Арыстан</td><td>Стандарт</td><td class="td-mut td-old">510 000</td><td class="td-price">300 000</td><td class="td-mut">16 ай</td><td class="td-price">25 000 ₸</td><td class="td-mut">12 500 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr><td class="td-course" style="color:var(--c-arystan)">Арыстан</td><td>Армия-VIP (Грант кепілдігі)</td><td class="td-mut td-old">1 037 000</td><td class="td-price">637 000</td><td class="td-mut">16 ай</td><td class="td-price">53 083 ₸</td><td class="td-mut">26 542 ₸</td><td><span class="chip chip-g">0-0-12 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">Ресми грант кепілдігі!</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-ilim)">IlimQaz</td><td>1 пән / ай</td><td class="td-mut">—</td><td class="td-price">20 000 ₸/ай</td><td class="td-mut">Икемді</td><td class="td-price">20 000 ₸</td><td class="td-mut">—</td><td><span class="chip chip-g">Бар ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">Тіркелген баға</td></tr>
+        <tr><td class="td-course" style="color:var(--c-ilim)">IlimQaz</td><td>4 пән / ай</td><td class="td-mut">—</td><td class="td-price">35 000 ₸/ай</td><td class="td-mut">Икемді</td><td class="td-price">35 000 ₸</td><td class="td-mut">—</td><td><span class="chip chip-g">Бар ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">140 балл → 5 000 000 ₸</td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-fm)">FM Online</td><td>BASIC (1 пән)</td><td class="td-mut">239 000</td><td class="td-price">239 000</td><td class="td-mut">~24 ай</td><td class="td-price">19 917 ₸</td><td class="td-price">9 958 ₸</td><td><span class="chip chip-g">0-0-24 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+        <tr><td class="td-course" style="color:var(--c-fm)">FM Online</td><td>VIP</td><td class="td-mut">629 000</td><td class="td-price">629 000</td><td class="td-mut">~24 ай</td><td class="td-price">52 416 ₸</td><td class="td-price">26 208 ₸</td><td><span class="chip chip-g">0-0-24 ✓</span></td><td><span class="chip chip-g">✓</span></td><td class="td-mut">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TAB 3 — ПӘНДЕР ҚАМТУ
+══════════════════════════════════════ -->
+<section class="tab-pane" id="tab-pandar">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Пәндер қамту</h2>
+    </div>
+    <span class="sec-sub">10 және 11-сынып бойынша</span>
+  </div>
+
+  <div class="note">
+    <strong>Салыстыру логикасы:</strong> «Бар» — курс осы пәнді оқытады; «Жоқ» — оқытылмайды; «Бонус» — негізгі емес, қосымша ретінде беріледі. ҰБТ форматы: <strong>Тарих (20) + Матсауат/ОС (20) + Таңдау пән 1 (50) + Таңдау пән 2 (50) = 140 балл.</strong>
+  </div>
+
+  <!-- Сынып фильтрі -->
+  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+    <button onclick="filterClass('all')" id="f-all" class="nav-btn active" style="font-size:12px;padding:6px 14px;">Барлығы</button>
+    <button onclick="filterClass('10')" id="f-10" class="nav-btn" style="font-size:12px;padding:6px 14px;">10-сынып</button>
+    <button onclick="filterClass('11')" id="f-11" class="nav-btn" style="font-size:12px;padding:6px 14px;">11-сынып</button>
+  </div>
+
+  <div class="tbl-wrap">
+    <table id="subj-table">
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Сынып</th>
+          <th>Биология</th>
+          <th>Химия</th>
+          <th>Физика</th>
+          <th>Математика</th>
+          <th>Информатика</th>
+          <th>Қаз. Тарихы</th>
+          <th>Дүние Тарихы</th>
+          <th>География</th>
+          <th>Ағылшын тілі</th>
+          <th>Матсауат / ОС</th>
+          <th>Оқусауат</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- proBIO -->
+        <tr data-class="10">
+          <td class="td-course" style="color:var(--c-probio)">proBIO</td>
+          <td><span class="chip chip-b">10-сынып</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+        </tr>
+        <!-- FOCUS Online -->
+        <tr class="alt" data-class="11">
+          <td class="td-course" style="color:var(--c-focus)">FOCUS Online</td>
+          <td><span class="chip chip-b">11-сынып</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+        </tr>
+        <!-- Glucose -->
+        <tr data-class="both">
+          <td class="td-course" style="color:var(--c-glucose)">Glucose Online</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+        </tr>
+        <!-- EduKey -->
+        <tr class="alt" data-class="both">
+          <td class="td-course" style="color:var(--c-edukey)">EduKey</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+        </tr>
+        <!-- EduSer -->
+        <tr data-class="both">
+          <td class="td-course" style="color:var(--c-eduser)">EduSer</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+        </tr>
+        <!-- GeoOnline -->
+        <tr class="alt" data-class="both">
+          <td class="td-course" style="color:var(--c-geo)">GeoOnline</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+        </tr>
+        <!-- Тарих мектебі -->
+        <tr data-class="both">
+          <td class="td-course" style="color:var(--c-tarih)">Тарих мектебі</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+        </tr>
+        <!-- Арыстан -->
+        <tr class="alt" data-class="both">
+          <td class="td-course" style="color:var(--c-arystan)">Арыстан</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+        </tr>
+        <!-- IlimQaz -->
+        <tr data-class="both">
+          <td class="td-course" style="color:var(--c-ilim)">IlimQaz</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+        </tr>
+        <!-- FM Online -->
+        <tr class="alt" data-class="both">
+          <td class="td-course" style="color:var(--c-fm)">FM Online</td>
+          <td><span class="chip chip-b">10–11</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-n">Жоқ</span></td>
+          <td><span class="chip chip-g">Бар</span></td>
+          <td><span class="chip chip-y">Бонус</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TAB 4 — КУРС МАЗМҰНЫ
+══════════════════════════════════════ -->
+<section class="tab-pane" id="tab-mazmuny">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Курс мазмұны</h2>
+    </div>
+    <span class="sec-sub">Не кіреді?</span>
+  </div>
+
+  <div class="feat-grid">
+
+    <div class="feat-card" style="--c:var(--c-probio)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">proBIO</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>90 (Био) + 62 (Хим) видеосабақ</li>
+        <li><span class="ico">✅</span>Куратор 24/7 — әр пәннен жеке</li>
+        <li><span class="ico">✅</span>4 500 (Био) + 2 500 (Хим) тест тапсырмасы</li>
+        <li><span class="ico">✅</span>Апталық зачёт куратормен</li>
+        <li><span class="ico">✅</span>Нұсқа талдау — апта сайын тікелей эфір</li>
+        <li><span class="ico">✅</span>Рейтинг жүйесі</li>
+        <li><span class="ico">✅</span>Ата-анаға апта сайын есеп</li>
+        <li><span class="ico">✅</span>Айына 2 рет пробный ҰБТ</li>
+        <li><span class="ico">✅</span>50PRO жобасы (50/50 балл мақсаты)</li>
+        <li><span class="ico">✅</span>Qaitalap AL финалдық курс</li>
+        <li><span class="ico">⭐</span>Матсауат, Оқусауат — бонус</li>
+        <li><span class="ico">❌</span>Профориентация — деректер жоқ</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-focus)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">FOCUS Online</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Апта сайын 8 тікелей эфір</li>
+        <li><span class="ico">✅</span>4 куратор (пән бойынша)</li>
+        <li><span class="ico">✅</span>4 мұғалім</li>
+        <li><span class="ico">✅</span>Профориентолог (4 универ, 4 мамандық)</li>
+        <li><span class="ico">✅</span>Авторлық тест базасы</li>
+        <li><span class="ico">⚠️</span>Видеосабақтар — анық емес</li>
+        <li><span class="ico">❌</span>Өте қысқа (1.5 ай)</li>
+        <li><span class="ico">❌</span>Тек 11-сыныпқа арналған</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-glucose)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">Glucose Online</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Өз платформасы</li>
+        <li><span class="ico">✅</span>Апталық жоспар + практика</li>
+        <li><span class="ico">✅</span>1 000+ тест (Хим) + Био тесттер</li>
+        <li><span class="ico">✅</span>Нұсқа талдау тікелей эфірде</li>
+        <li><span class="ico">✅</span>Профориентолог</li>
+        <li><span class="ico">✅</span>Рейтинг жүйесі</li>
+        <li><span class="ico">✅</span>Айлық пробный ҰБТ</li>
+        <li><span class="ico">⚠️</span>Куратор — деректер толық емес</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-edukey)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">EduKey</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Видеосабақтар edukey.kz платформасында</li>
+        <li><span class="ico">✅</span>Google Meet арқылы LIVE сабақтар</li>
+        <li><span class="ico">✅</span>Edubook — кітап талдау жүйесі</li>
+        <li><span class="ico">✅</span>Прокторинг (камера + бақылау)</li>
+        <li><span class="ico">✅</span>Куратор (11-сынып — пән бойынша)</li>
+        <li><span class="ico">✅</span>Айлық пробный ҰБТ</li>
+        <li><span class="ico">✅</span>Стипендия 10 000₸/ай (жасыл деңгей)</li>
+        <li><span class="ico">✅</span>Ата-анаға апта сайын есеп</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-eduser)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">EduSer</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Видеосабақтар + квиз тесттер</li>
+        <li><span class="ico">✅</span>Тақырыптық тесттер</li>
+        <li><span class="ico">✅</span>5 пәннен пробный ҰБТ</li>
+        <li><span class="ico">✅</span>Нұсқа талдау апта сайын (тікелей эфір)</li>
+        <li><span class="ico">✅</span>Практикалық сабақ апта сайын</li>
+        <li><span class="ico">✅</span>Куратор 2 аптада 1 рет</li>
+        <li><span class="ico">✅</span>Рейтинг + ата-ана есебі</li>
+        <li><span class="ico">✅</span>Мотивациялық кеш ай сайын</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-geo)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">GeoOnline</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Видеосабақтар (Гео 70 + Тарих 53)</li>
+        <li><span class="ico">✅</span>Практикум тікелей эфір</li>
+        <li><span class="ico">✅</span>3Д карта курсы (география)</li>
+        <li><span class="ico">✅</span>GEOBOX — физикалық материалдар</li>
+        <li><span class="ico">✅</span>Нұсқа талдау курстары</li>
+        <li><span class="ico">✅</span>Профориентация</li>
+        <li><span class="ico">✅</span>Психология курсы</li>
+        <li><span class="ico">✅</span>Авторлық кітаптар</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-tarih)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">Тарих мектебі</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>50 видеосабақ (Тарих)</li>
+        <li><span class="ico">✅</span>Оразбек ағаймен апта сайын тікелей эфір</li>
+        <li><span class="ico">✅</span>Авторлық тест базасы</li>
+        <li><span class="ico">✅</span>4 айлық куратор қадағалауы</li>
+        <li><span class="ico">✅</span>Ауызша сабақ тапсыру (апт. 3 рет)</li>
+        <li><span class="ico">✅</span>Оқу сауаттылығы — тегін бонус</li>
+        <li><span class="ico">✅</span>10-сынып → 2 жыл куратормен тегін</li>
+        <li><span class="ico">✅</span>Қайталау курс тегін</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-arystan)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">Арыстан</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Платформа 24/7 қолжетімділік</li>
+        <li><span class="ico">✅</span>Видеосабақтар (ҰБТ сарапшылары)</li>
+        <li><span class="ico">✅</span>60 000+ сұрақ базасы (VIP)</li>
+        <li><span class="ico">✅</span>5 пәннен тікелей эфір (VIP)</li>
+        <li><span class="ico">✅</span>Дайын конспектілер</li>
+        <li><span class="ico">✅</span>Куратор — жеке разбор (Армия-VIP)</li>
+        <li><span class="ico">⭐</span>Ресми грант кепілдігі (Армия-VIP)</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-ilim)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">IlimQaz</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Күнделікті жоспар</li>
+        <li><span class="ico">✅</span>Практика сабағы + видеосабақтар</li>
+        <li><span class="ico">✅</span>Апталық тест + апталық зачёт</li>
+        <li><span class="ico">✅</span>Ай сайын толық тест</li>
+        <li><span class="ico">✅</span>Нұсқа талдау тікелей эфірде</li>
+        <li><span class="ico">✅</span>Куратормен байланыс</li>
+        <li><span class="ico">✅</span>Ата-анамен байланыс</li>
+        <li><span class="ico">⭐</span>140 балл → 5 000 000₸ сыйақы</li>
+      </ul>
+    </div>
+
+    <div class="feat-card" style="--c:var(--c-fm)">
+      <div class="feat-card-head"><div class="feat-dot"></div><div class="feat-card-name">FM Online</div></div>
+      <ul class="feat-list">
+        <li><span class="ico">✅</span>Видеосабақтар + конспект</li>
+        <li><span class="ico">✅</span>Практикалық тікелей эфирлер</li>
+        <li><span class="ico">✅</span>Апталық + айлық тест</li>
+        <li><span class="ico">✅</span>Нұсқа талдау (2023–2026 базасы)</li>
+        <li><span class="ico">✅</span>Куратор + рейтинг жүйесі</li>
+        <li><span class="ico">✅</span>Мотивациялық кештер</li>
+        <li><span class="ico">✅</span>Профориентолог</li>
+        <li><span class="ico">✅</span>С-деңгейлі тақырыптар курсы</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TAB 5 — НӘТИЖЕЛЕР
+══════════════════════════════════════ -->
+<section class="tab-pane" id="tab-natije">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Оқушы нәтижелері</h2>
+    </div>
+    <span class="sec-sub">Балдар, гранттар, дәлелдер</span>
+  </div>
+
+  <div class="note">
+    <strong>Деректер сенімділігі:</strong> 🟢 Жоғары — нақты куәліктер / сертификаттар жарияланған; 🟡 Орташа — мәлімдеме бар, тәуелсіз тексеру жоқ; 🟠 Төмен — деректер жалпы; 🔴 Жоқ — нәтижелер жарияланбаған.
+  </div>
+
+  <div class="res-grid">
+
+    <div class="res-card" style="--c:var(--c-probio)">
+      <div class="res-course">proBIO</div>
+      <div class="res-big">4 200+</div>
+      <div class="res-desc">3 жылда шыққан түлектер саны</div>
+      <ul class="res-items">
+        <li>451 медицина гранты (2024 жыл)</li>
+        <li>Қазақстан бойынша медицинаға грант алған әрбір 3 оқушының 1-і — proBIO түлегі</li>
+        <li>8 рекордсмен: биологиядан 50/50 балл</li>
+        <li>476 оқушы — биологиядан 40+ балл</li>
+        <li>2025 жылғы шектік балл: 112</li>
+      </ul>
+      <div class="trust trust-h">🟢 Деректер сенімділігі: Жоғары</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-focus)">
+      <div class="res-course">FOCUS Online</div>
+      <div class="res-big">—</div>
+      <div class="res-desc">Нәтижелер жарияланбаған. Жаңа сәуір 2026 ағымы.</div>
+      <ul class="res-items">
+        <li>Профориентолог пакетте бар</li>
+        <li>Қысқа курс — нәтижелер шектеулі</li>
+      </ul>
+      <div class="trust trust-n">🔴 Деректер жоқ</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-glucose)">
+      <div class="res-course">Glucose Online</div>
+      <div class="res-big">—</div>
+      <div class="res-desc">Нақты балдар материалдарда көрсетілмеген.</div>
+      <ul class="res-items">
+        <li>БиоХим бағыты (медицина)</li>
+        <li>Профориентолог қосылған</li>
+      </ul>
+      <div class="trust trust-l">🟠 Деректер: Төмен</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-edukey)">
+      <div class="res-course">EduKey</div>
+      <div class="res-big">10K₸</div>
+      <div class="res-desc">Жасыл деңгейдегі оқушыларға ай сайын стипендия</div>
+      <ul class="res-items">
+        <li>Прокторинг жүйесі енгізілген</li>
+        <li>ҰБТ балдары туралы нақты мәліметтер жоқ</li>
+      </ul>
+      <div class="trust trust-n">🔴 Деректер жоқ</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-eduser)">
+      <div class="res-course">EduSer</div>
+      <div class="res-big">140</div>
+      <div class="res-desc">Платформаның мәлімдеген рекорды</div>
+      <ul class="res-items">
+        <li>Рейтинг жүйесі бар</li>
+        <li>Нақты сертификаттар ұсынылмаған</li>
+      </ul>
+      <div class="trust trust-l">🟠 Деректер: Орташа</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-geo)">
+      <div class="res-course">GeoOnline</div>
+      <div class="res-big">—</div>
+      <div class="res-desc">Нақты балдар материалдарда жоқ</div>
+      <ul class="res-items">
+        <li>Гео + тарих мамандануы</li>
+        <li>GEOBOX — қосымша физикалық материал</li>
+      </ul>
+      <div class="trust trust-l">🟠 Деректер: Төмен</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-tarih)">
+      <div class="res-course">Тарих мектебі</div>
+      <div class="res-big">140</div>
+      <div class="res-desc">Ерасыл Сайлауов — Қазақстан бойынша абсолютті рекордшы</div>
+      <ul class="res-items">
+        <li>Оразбек ағай — ҰТО серіктесі, нақты тест құрастырушы</li>
+        <li>11 жыл педагогтік тәжірибе</li>
+        <li>Instagram-та куәлікпен расталған</li>
+      </ul>
+      <div class="trust trust-h">🟢 Деректер сенімділігі: Жоғары</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-arystan)">
+      <div class="res-course">Арыстан</div>
+      <div class="res-big">Кепілдік</div>
+      <div class="res-desc">Армия-VIP пакеті — грантқа ресми кепілдік шарты</div>
+      <ul class="res-items">
+        <li>Ресми кепілдік (кепілдік) шартта бекітілген</li>
+        <li>Нақты балдар жарияланбаған</li>
+        <li>60 000+ сұрақ базасы</li>
+      </ul>
+      <div class="trust trust-m">🟡 Деректер: Орташа</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-ilim)">
+      <div class="res-course">IlimQaz</div>
+      <div class="res-big">99%</div>
+      <div class="res-desc">2025 жылғы мәлімделген нәтиже — 110+ балл</div>
+      <ul class="res-items">
+        <li>2025 жылғы ең жоғары: 138 балл</li>
+        <li>140 балл алған оқушыға 5 000 000₸ сыйақы</li>
+        <li>Тіркелген баға (ай сайын өзгермейді)</li>
+      </ul>
+      <div class="trust trust-m">🟡 Деректер: Орташа</div>
+    </div>
+
+    <div class="res-card" style="--c:var(--c-fm)">
+      <div class="res-course">FM Online</div>
+      <div class="res-big">136</div>
+      <div class="res-desc">Қаңтар ҰБТ 2026 — Момбай Қанықбек (Мат:49, Физ:49)</div>
+      <ul class="res-items">
+        <li>5 оқушының нақты ҰБТ куәлігі жарияланған (125–136 балл)</li>
+        <li>«Нүкте А» → прогресс → «Нүкте Б» форматы</li>
+        <li>14 оқушы: математикадан 50/50 (2024)</li>
+        <li>8 оқушы: математикадан 50/50 (2025)</li>
+      </ul>
+      <div class="trust trust-h">🟢 Деректер сенімділігі: Жоғары</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TAB 6 — ҚОРЫТЫНДЫ
+══════════════════════════════════════ -->
+<section class="tab-pane" id="tab-qorytyndy">
+  <div class="sec-head">
+    <div class="sec-head-left">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Қорытынды</h2>
+    </div>
+    <span class="sec-sub">Балдық матрица + негізгі инсайттар</span>
+  </div>
+
+  <!-- MATRIX -->
+  <h3 style="font-family:'Unbounded';font-size:15px;margin-bottom:10px;color:var(--ink);">Балдық матрица (1–5)</h3>
+  <p class="matrix-note">5 — ең жақсы көрсеткіш, 1 — әлсіз. Жалпы балл = барлық критерий бойынша орташа.</p>
+
+  <div class="matrix-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Баға/Қолжетімділік</th>
+          <th>Ұзақтық</th>
+          <th>Пән қамтуы</th>
+          <th>Нәтижелер</th>
+          <th>Деректер ашықтығы</th>
+          <th>Куратор/Қолдау</th>
+          <th>Контент (тесттер)</th>
+          <th>Бөліп төлеу</th>
+          <th>Бірегей УТП</th>
+          <th>Бәсеке қаупі</th>
+          <th>ЖАЛПЫ</th>
+        </tr>
+      </thead>
+      <tbody id="matrix-body">
+        <!-- JS толтырады -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- VERDICT CARDS -->
+  <h3 style="font-family:'Unbounded';font-size:15px;margin-bottom:20px;color:var(--ink);">Негізгі қорытындылар</h3>
+  <div class="verdict-grid">
+
+    <div class="verdict-card highlight">
+      <div class="v-label">Басты бәсекелес</div>
+      <div class="v-name">proBIO</div>
+      <div class="v-body">БиоХим + медицина бағытындағы ең күшті нарықтық ойыншы. Дәлелденген статистика (451 грант, 4 200+ түлек), 5 кезеңдік жүйе, ата-аналарға бағытталған күшті маркетинг.</div>
+      <ul class="v-pros">
+        <li>Расталған нәтижелер мен цифрлар</li>
+        <li>Өте егжей-тегжейлі 5 кезеңдік жүйе</li>
+        <li>Нарықтағы ең мықты бренд</li>
+      </ul>
+      <ul class="v-cons">
+        <li>Тек 10-сынып оқушылары үшін</li>
+        <li>Жоғары баға (VIP 440K₸-ге дейін)</li>
+      </ul>
+    </div>
+
+    <div class="verdict-card">
+      <div class="v-label">Ашықтық эталоны</div>
+      <div class="v-name">FM Online</div>
+      <div class="v-body">Нақты ҰБТ куәліктерін (есім, дата, балл) жариялайтын жалғыз курс. «Нүкте А → Прогресс → Нүкте Б» форматы — ең күшті сенім инструменті. Физ-мат нишасы.</div>
+      <ul class="v-pros">
+        <li>Нақты 2026 ҰБТ сертификаттары</li>
+        <li>Прогресті ашық көрсетеді</li>
+        <li>Жеке рекорды бар мықты мұғалімдер</li>
+      </ul>
+      <ul class="v-cons">
+        <li>Бөлек ниша (Физ+Мат)</li>
+      </ul>
+    </div>
+
+    <div class="verdict-card">
+      <div class="v-label">Ең төмен баға</div>
+      <div class="v-name">Тарих мектебі</div>
+      <div class="v-body">90 000₸ — нарықтағы ең арзан толық курс (7 500₸/ай). 10-сынып үшін 2 жыл куратор тегін. Абсолютті рекорд — 140 балл. Мұғалім нақты тест құрастырушы.</div>
+      <ul class="v-pros">
+        <li>Ең төмен баға (7 500₸/ай)</li>
+        <li>10-сынып → 2 жыл тегін</li>
+        <li>ҰТО серіктесі, тест құрастырушы</li>
+      </ul>
+      <ul class="v-cons">
+        <li>Тек тарих + матсауат</li>
+      </ul>
+    </div>
+
+    <div class="verdict-card">
+      <div class="v-label">Ерекше УТП</div>
+      <div class="v-name">Арыстан</div>
+      <div class="v-body">Нарықта жалғыз — Армия-VIP пакетінде грантқа ресми кепілдік. Ата-аналарға «кепілдік» дегеніміз — ең күшті психологиялық аргумент.</div>
+      <ul class="v-pros">
+        <li>Ресми грант кепілдігі (шартта)</li>
+        <li>60 000+ сұрақ базасы</li>
+      </ul>
+      <ul class="v-cons">
+        <li>Армия-VIP өте қымбат (637K₸)</li>
+        <li>Нақты балдар жарияланбаған</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="div"></div>
+
+  <!-- INSIGHTS -->
+  <h3 style="font-family:'Unbounded';font-size:15px;margin-bottom:20px;color:var(--ink);">Нарықтық инсайттар</h3>
+  <div class="insight-grid">
+
+    <div class="insight-card">
+      <div class="insight-icon">📄</div>
+      <div class="insight-title">Нәтижелер ашықтығы — басты айырмашылық</div>
+      <div class="insight-body">FM Online нақты куәліктерді жариялайды — бұл сенімнің ең күшті дәлелі. Балдарды, студент есімдерін және прогресті ашық көрсету — бұл нарықта стандарт емес, бірақ өте тиімді.</div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-icon">💰</div>
+      <div class="insight-title">Ай сайынғы төлем стандарты</div>
+      <div class="insight-body">proBIO — 20 825₸/ай (0-0-12, 17 ай). Бұл БиоХим сегментіндегі баға ориентирі. Нарықта 0-0-12 рассрочка — стандарт болып қалыптасқан.</div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-icon">🛡️</div>
+      <div class="insight-title">«Грант кепілдігі» — бос ниша</div>
+      <div class="insight-body">Арыстан «кепілдікті» монополизациялаған. Бұл ата-аналар үшін өте күшті психологиялық аргумент. Аналогтық немесе жауап беретін УТП ойластыру керек.</div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-icon">🎓</div>
+      <div class="insight-title">Стипендия — арзан, тиімді инструмент</div>
+      <div class="insight-body">EduKey үздік оқушыларға ай сайын 10 000₸ стипендия береді. Бұл — ұстап қалу + вирустық маркетинг. Аз шығынмен жоғары әсер беретін инструмент.</div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-icon">📅</div>
+      <div class="insight-title">11-сынып сегменті — бос орын</div>
+      <div class="insight-body">FOCUS Online тек 1.5 айлық интенсив ұсынады. 11-сыныптарға арналған толыққанды ұзақмерзімді курс нарықта жоқ. Бұл — ашық ниша.</div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-icon">📆</div>
+      <div class="insight-title">0-0-24 — бәсекелестік артықшылық</div>
+      <div class="insight-body">GeoOnline, FM Online және Тарих мектебі 0-0-24 рассрочка ұсынады. Ай сайынғы төлем 10–14K₸-ге дейін төмендейді. Бюджеті шектеулі отбасылар үшін күшті аргумент.</div>
+    </div>
+
+  </div>
+
+  <!-- БӘСЕКЕ ҚАУПІ КЕСТЕСІ -->
+  <div class="div"></div>
+  <h3 style="font-family:'Unbounded';font-size:15px;margin-bottom:16px;color:var(--ink);">Бәсеке қаупі деңгейі</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Ниша</th>
+          <th>Күшті жақтары</th>
+          <th>Әлсіз жақтары</th>
+          <th>Баға деңгейі</th>
+          <th>Бәсеке қаупі</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-course" style="color:var(--c-probio)">proBIO</td><td class="td-mut">БиоХим · Медицина</td><td>Расталған цифрлар, 5 кезең, күшті бренд</td><td class="td-mut">Тек 10-сынып, жоғары баға</td><td class="td-mut">249K–440K ₸</td><td><span class="threat-h">🔴 Жоғары</span></td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-focus)">FOCUS Online</td><td class="td-mut">Барлық пән · 11 сынып</td><td>Арзан, жылдам, профориент</td><td class="td-mut">Тек 11-сынып, 1.5 ай ғана</td><td class="td-mut">65K–85K ₸</td><td><span class="threat-l">🟡 Төмен</span></td></tr>
+        <tr><td class="td-course" style="color:var(--c-glucose)">Glucose Online</td><td class="td-mut">БиоХим</td><td>БиоХим комбо, профориент</td><td class="td-mut">Нәтиже деректері әлсіз</td><td class="td-mut">260K ₸</td><td><span class="threat-m">🟠 Орташа</span></td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-edukey)">EduKey</td><td class="td-mut">Барлық пән</td><td>Стипендия, прокторинг</td><td class="td-mut">Нәтижелер жоқ, 10 ай</td><td class="td-mut">295K ₸</td><td><span class="threat-l">🟡 Төмен</span></td></tr>
+        <tr><td class="td-course" style="color:var(--c-eduser)">EduSer</td><td class="td-mut">5 пән</td><td>5 пән, рейтинг, есеп</td><td class="td-mut">Расталған нәтижелер жоқ</td><td class="td-mut">279K–389K ₸</td><td><span class="threat-l">🟡 Төмен</span></td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-geo)">GeoOnline</td><td class="td-mut">Гео + Тарих</td><td>Мамандану, GEOBOX, 0-0-24</td><td class="td-mut">Бөлек ниша (БиоХим емес)</td><td class="td-mut">329K–479K ₸</td><td><span class="threat-n">🟢 Жоқ</span></td></tr>
+        <tr><td class="td-course" style="color:var(--c-tarih)">Тарих мектебі</td><td class="td-mut">Тарих + Матсауат</td><td>Ең арзан, рекорд 140, 2 жыл тегін</td><td class="td-mut">Тек тарих + матсауат</td><td class="td-mut">90K–120K ₸</td><td><span class="threat-n">🟢 Жоқ</span></td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-arystan)">Арыстан</td><td class="td-mut">5 пән</td><td>Грант кепілдігі, 60K+ сұрақ</td><td class="td-mut">Өте қымбат, балдар жоқ</td><td class="td-mut">300K–637K ₸</td><td><span class="threat-m">🟠 Орташа</span></td></tr>
+        <tr><td class="td-course" style="color:var(--c-ilim)">IlimQaz</td><td class="td-mut">4 пән · Икемді</td><td>Тіркелген баға, 99%→110+, акция</td><td class="td-mut">Ұзақтық белгісіз, мәлімдеме</td><td class="td-mut">от 20K₸/ай</td><td><span class="threat-m">🟠 Орташа</span></td></tr>
+        <tr class="alt"><td class="td-course" style="color:var(--c-fm)">FM Online</td><td class="td-mut">Физ + Мат + Инфо</td><td>Нақты куәліктер, мықты мұғалімдер</td><td class="td-mut">Бөлек ниша (БиоХим емес)</td><td class="td-mut">239K–629K ₸</td><td><span class="threat-n">🟢 Жоқ</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+// ── TAB SWITCHING ──
+function showTab(id) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if (id === 'qorytyndy') buildMatrix();
+}
+
+// ── CLASS FILTER ──
+function filterClass(cls) {
+  ['all','10','11'].forEach(c => document.getElementById('f-'+c).classList.remove('active'));
+  document.getElementById('f-'+cls).classList.add('active');
+  const rows = document.querySelectorAll('#subj-table tbody tr');
+  rows.forEach(r => {
+    const dc = r.dataset.class;
+    if (cls === 'all') { r.style.display = ''; }
+    else if (cls === '10') { r.style.display = (dc === '10' || dc === 'both') ? '' : 'none'; }
+    else { r.style.display = (dc === '11' || dc === 'both') ? '' : 'none'; }
+  });
+}
+
+// ── MATRIX BUILD ──
+const matrixData = [
+  { name:'proBIO',        c:'var(--c-probio)', scores:[3,4,2,5,4,5,5,5,4,5] },
+  { name:'FOCUS Online',  c:'var(--c-focus)',  scores:[5,1,4,1,1,3,2,2,3,1] },
+  { name:'Glucose Online',c:'var(--c-glucose)',scores:[4,3,2,2,2,3,3,4,3,3] },
+  { name:'EduKey',        c:'var(--c-edukey)', scores:[3,3,5,2,2,4,3,2,4,2] },
+  { name:'EduSer',        c:'var(--c-eduser)', scores:[3,3,5,2,2,3,3,4,3,2] },
+  { name:'GeoOnline',     c:'var(--c-geo)',    scores:[3,5,3,2,2,4,3,5,3,1] },
+  { name:'Тарих мектебі', c:'var(--c-tarih)',  scores:[5,3,2,4,4,4,3,5,5,1] },
+  { name:'Арыстан',       c:'var(--c-arystan)',scores:[2,3,5,3,3,4,4,4,5,3] },
+  { name:'IlimQaz',       c:'var(--c-ilim)',   scores:[5,3,4,3,3,4,3,4,4,3] },
+  { name:'FM Online',     c:'var(--c-fm)',     scores:[3,5,3,4,5,4,3,5,4,1] },
+];
+
+const scoreBg = ['','#D92B3A','#E87830','#E8C030','#35A86C','#0E7A48'];
+const scoreClr = ['','#fff','#fff','#1A1A00','#fff','#fff'];
+
+function buildMatrix() {
+  const tbody = document.getElementById('matrix-body');
+  if (tbody.children.length > 0) return;
+  matrixData.forEach((row, i) => {
+    const avg = (row.scores.reduce((a,b)=>a+b,0)/row.scores.length).toFixed(1);
+    const tr = document.createElement('tr');
+    if (i % 2 === 1) tr.classList.add('alt');
+    let html = `<td class="td-course" style="color:${row.c};white-space:nowrap;">${row.name}</td>`;
+    row.scores.forEach(s => {
+      html += `<td class="score-cell" style="background:${scoreBg[s]};color:${scoreClr[s]};">${s}</td>`;
+    });
+    html += `<td class="total-cell">${avg}</td>`;
+    tr.innerHTML = html;
+    tbody.appendChild(tr);
+  });
+}
+
+// Initial matrix if on verdict tab
+if (document.getElementById('tab-qorytyndy').classList.contains('active')) buildMatrix();
+</script>
+</body>
+</html>
