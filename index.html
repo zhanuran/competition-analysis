@@ -591,6 +591,18 @@ tbody td:last-child { border-right: none; }
 .fade-up { animation: fadeUp 0.45s ease both; }
 .tab-pane.active > * { animation: fadeUp 0.4s ease both; }
 
+/* ── SORT ── */
+.th-sort {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.th-sort:hover { background: #2a2a3e; }
+.sort-icon { opacity: 0.5; font-size: 10px; margin-left: 4px; }
+.th-sort.asc .sort-icon::after { content: '↑'; }
+.th-sort.desc .sort-icon::after { content: '↓'; }
+.th-sort.asc .sort-icon, .th-sort.desc .sort-icon { opacity: 1; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .hero { padding: 36px 20px 32px; }
@@ -604,7 +616,7 @@ tbody td:last-child { border-right: none; }
 <body>
 <script>
   (function() {
-    const correct = "zhansayatop";
+    const correct = "juz40-2026";
     const input = prompt("🔒 Құпия сөзді енгізіңіз:");
     if (input !== correct) {
       document.documentElement.innerHTML =
@@ -795,11 +807,11 @@ tbody td:last-child { border-right: none; }
     <table>
       <thead>
         <tr>
-          <th>Курс</th>
+          <th onclick="sortTable(0)" class="th-sort">Курс <span class="sort-icon">↕</span></th>
           <th>Тариф / Пакет</th>
-          <th>Баға (₸)</th>
-          <th>Ұзақтық</th>
-          <th>Айына (₸)</th>
+          <th onclick="sortTable(2)" class="th-sort">Баға (₸) <span class="sort-icon">↕</span></th>
+          <th onclick="sortTable(3)" class="th-sort">Ұзақтық <span class="sort-icon">↕</span></th>
+          <th onclick="sortTable(4)" class="th-sort">Айына (₸) <span class="sort-icon">↕</span></th>
           <th>Бөліп төлеу</th>
           <th>Ерекше шарт</th>
         </tr>
@@ -1578,6 +1590,56 @@ function buildMatrix() {
 
 // Initial matrix if on verdict tab
 if (document.getElementById('tab-qorytyndy').classList.contains('active')) buildMatrix();
+
+// ── TABLE SORT ──
+let sortState = { col: -1, dir: 1 };
+
+function sortTable(colIdx) {
+  // Find the price table (first table inside tab-baga)
+  const section = document.getElementById('tab-baga');
+  const table = section.querySelector('table');
+  const tbody = table.querySelector('tbody');
+  const ths = table.querySelectorAll('th.th-sort');
+
+  // Toggle direction
+  if (sortState.col === colIdx) {
+    sortState.dir *= -1;
+  } else {
+    sortState.col = colIdx;
+    sortState.dir = 1;
+  }
+
+  // Update header icons
+  ths.forEach(th => { th.classList.remove('asc','desc'); });
+  // Find clicked th by data position
+  const allThs = table.querySelectorAll('th');
+  allThs[colIdx].classList.add(sortState.dir === 1 ? 'asc' : 'desc');
+
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+
+  rows.sort((a, b) => {
+    const aCell = a.cells[colIdx];
+    const bCell = b.cells[colIdx];
+    if (!aCell || !bCell) return 0;
+
+    // Extract numeric value if possible
+    const aText = aCell.innerText.replace(/[^0-9.]/g, '');
+    const bText = bCell.innerText.replace(/[^0-9.]/g, '');
+    const aNum = parseFloat(aText);
+    const bNum = parseFloat(bText);
+
+    if (!isNaN(aNum) && !isNaN(bNum)) {
+      return (aNum - bNum) * sortState.dir;
+    }
+    // Text sort
+    return aCell.innerText.localeCompare(bCell.innerText, 'kk') * sortState.dir;
+  });
+
+  rows.forEach((r, i) => {
+    r.classList.toggle('alt', i % 2 === 1);
+    tbody.appendChild(r);
+  });
+}
 </script>
 </body>
 </html>
